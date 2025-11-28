@@ -28,7 +28,7 @@ void InitConsoleLogging(boost::log::formatter& log_format)
     logging::core::get()->add_sink(g_console_sink);
 }
 
-void LogHelper::InitLogging(const std::string& log_file_name, const int rotation_size, const int max_files, const int max_size)
+void LogHelper::InitLogging(const int rotation_size, const int max_files, const int max_size)
 {
     boost::log::formatter log_format = (
         expr::stream << "["

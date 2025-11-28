@@ -17,6 +17,6 @@ static constexpr auto fatal = boost::log::trivial::fatal;
 static constexpr auto debug = boost::log::trivial::debug;
 static constexpr auto warning = boost::log::trivial::warning;
 
-void InitLogging(const std::string& log_file_name, const int rotation_size = 10 * 1024 * 1024, const int max_files = 5, const int max_size = 5 * 1024 * 1024);
+void InitLogging(const int rotation_size = 10 * 1024 * 1024, const int max_files = 5, const int max_size = 5 * 1024 * 1024);
 void SetLevel(boost::log::trivial::severity_level level);
 } // namespace LogHelper
