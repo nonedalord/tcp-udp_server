@@ -40,5 +40,5 @@ make build && sudo make install
 Run via makefile:
 
 ```bash
-make run port
+sudo make run PORT=
 ```
