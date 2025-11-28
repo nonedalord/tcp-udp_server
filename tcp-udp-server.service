@@ -1,0 +1,23 @@
+[Unit]
+Description=TCP/UDP Server
+Documentation=https://github.com/nonedalord/tcp-udp_server/blob/main/README.md
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+Environment=SERVER_PORT=8087
+ExecStart=/usr/local/bin/Server ${SERVER_PORT}
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=tcp-udp-server
+
+[Install]
+WantedBy=multi-user.target
