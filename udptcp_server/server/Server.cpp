@@ -400,3 +400,22 @@ void TCPUPDServer::HandleUDPData()
         }
     }
 }
+
+void TCPUPDServer::SetShutdownCallback(ShutdownCallback&& callback)
+{
+    std::unique_lock lock(m_callback_mutex);
+    m_shutdown_callback = std::forward<ShutdownCallback>(callback);
+    static std::once_flag flag;
+    std::call_once(flag, [this]() {
+        m_shutdown_thread = std::thread([this]{
+            while (!m_is_shutdown.load())
+            {
+                std::unique_lock lock(m_shutdown_mutex);
+                m_shutdown_cv.wait(lock, [this] {
+                    return m_is_shutdown.load();
+                });
+            }
+            Stop();
+        });
+    });
+}

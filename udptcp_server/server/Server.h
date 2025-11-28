@@ -19,24 +19,7 @@ public:
     ~TCPUPDServer();
     void Init(int port, unsigned int max_events = 64);
     void ListenAsync(unsigned int max_threads = 4);
-    void SetShutdownCallback(ShutdownCallback&& callback) noexcept
-    {
-        std::unique_lock lock(m_callback_mutex);
-        m_shutdown_callback = std::forward<ShutdownCallback>(callback);
-        static std::once_flag flag;
-        std::call_once(flag, [this]() {
-            m_shutdown_thread = std::thread([this]{
-                while (!m_is_shutdown.load())
-                {
-                    std::unique_lock lock(m_shutdown_mutex);
-                    m_shutdown_cv.wait(lock, [this] {
-                        return m_is_shutdown.load();
-                    });
-                }
-                Stop();
-            });
-        });
-    }
+    void SetShutdownCallback(ShutdownCallback&& callback);
     void Stop();
 private:
     void AddSocketToEpoll(unsigned int client_socket, uint32_t events);
