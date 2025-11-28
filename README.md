@@ -5,7 +5,7 @@ A high-performance network server implementation using Linux system calls and ep
 # Dependencies
 
 1. Boost 1.84 or higher - for logging functionality
-2. C++17 compatible compiler
+2. C++20 compatible compiler
 
 # Supported Commands
 
