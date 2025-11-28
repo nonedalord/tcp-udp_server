@@ -14,9 +14,10 @@ int Application::Run(std::string_view port)
 {
     try
     {
-        int new_port = GetIntPort(port);
         LogHelper::InitLogging();
         LogHelper::SetLevel(boost::log::trivial::trace);
+        SetupSignalHandlers();
+        int new_port = GetIntPort(port);
         SetupSignalHandlers();
         InitServer(new_port);
         LOG(m_logger, LogHelper::info, "Server started");
