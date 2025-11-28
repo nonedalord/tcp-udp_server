@@ -1,3 +1,0 @@
-/home/none/Desktop/test_ndm/build/CMakeFiles/Server.dir
-/home/none/Desktop/test_ndm/build/CMakeFiles/edit_cache.dir
-/home/none/Desktop/test_ndm/build/CMakeFiles/rebuild_cache.dir
