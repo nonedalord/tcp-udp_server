@@ -342,7 +342,10 @@ std::string TCPUPDServer::PrepareAnswer(std::string_view response)
             {
                 m_is_shutdown.store(true);
                 m_shutdown_cv.notify_all();
-                m_shutdown_callback();
+                {
+                    std::unique_lock lock(m_callback_mutex);
+                    m_shutdown_callback();
+                }
             }
             return std::string();
         }
