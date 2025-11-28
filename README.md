@@ -18,14 +18,14 @@ Response format:
 Total clients: 21. Active clients: 21
 ```
 
-**_time_** - Returns the current server local time.
+**_/time_** - Returns the current server local time.
 
 Response format:
 ```
 2025-11-28 15:04:05
 ```
 
-**_shutdown_** - Gracefully shuts down the server.
+**_/shutdown_** - Gracefully shuts down the server.
 
 # Install
 
