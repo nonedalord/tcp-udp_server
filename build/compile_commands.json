@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/none/Desktop/test_ndm/build",
+  "command": "/usr/bin/g++ -DBOOST_ATOMIC_NO_LIB -DBOOST_CHRONO_NO_LIB -DBOOST_FILESYSTEM_NO_LIB -DBOOST_LOG_NO_LIB -DBOOST_LOG_SETUP_NO_LIB -DBOOST_THREAD_NO_LIB  -g -std=gnu++20 -o CMakeFiles/Server.dir/udptcp_server/Application.cpp.o -c /home/none/Desktop/test_ndm/udptcp_server/Application.cpp",
+  "file": "/home/none/Desktop/test_ndm/udptcp_server/Application.cpp"
+},
+{
+  "directory": "/home/none/Desktop/test_ndm/build",
+  "command": "/usr/bin/g++ -DBOOST_ATOMIC_NO_LIB -DBOOST_CHRONO_NO_LIB -DBOOST_FILESYSTEM_NO_LIB -DBOOST_LOG_NO_LIB -DBOOST_LOG_SETUP_NO_LIB -DBOOST_THREAD_NO_LIB  -g -std=gnu++20 -o CMakeFiles/Server.dir/udptcp_server/main.cpp.o -c /home/none/Desktop/test_ndm/udptcp_server/main.cpp",
+  "file": "/home/none/Desktop/test_ndm/udptcp_server/main.cpp"
+},
+{
+  "directory": "/home/none/Desktop/test_ndm/build",
+  "command": "/usr/bin/g++ -DBOOST_ATOMIC_NO_LIB -DBOOST_CHRONO_NO_LIB -DBOOST_FILESYSTEM_NO_LIB -DBOOST_LOG_NO_LIB -DBOOST_LOG_SETUP_NO_LIB -DBOOST_THREAD_NO_LIB  -g -std=gnu++20 -o CMakeFiles/Server.dir/udptcp_server/server/Server.cpp.o -c /home/none/Desktop/test_ndm/udptcp_server/server/Server.cpp",
+  "file": "/home/none/Desktop/test_ndm/udptcp_server/server/Server.cpp"
+},
+{
+  "directory": "/home/none/Desktop/test_ndm/build",
+  "command": "/usr/bin/g++ -DBOOST_ATOMIC_NO_LIB -DBOOST_CHRONO_NO_LIB -DBOOST_FILESYSTEM_NO_LIB -DBOOST_LOG_NO_LIB -DBOOST_LOG_SETUP_NO_LIB -DBOOST_THREAD_NO_LIB  -g -std=gnu++20 -o CMakeFiles/Server.dir/udptcp_server/logging/Logging.cpp.o -c /home/none/Desktop/test_ndm/udptcp_server/logging/Logging.cpp",
+  "file": "/home/none/Desktop/test_ndm/udptcp_server/logging/Logging.cpp"
+}
+]
