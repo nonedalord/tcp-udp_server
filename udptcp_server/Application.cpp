@@ -43,7 +43,7 @@ void Application::InitServer(int port)
     );
     m_server->Init(port);
     unsigned int max_threads = 8;
-    m_server->ListenAsync(8);
+    m_server->ListenAsync(max_threads);
 }
 
 int Application::GetIntPort(std::string_view port)
