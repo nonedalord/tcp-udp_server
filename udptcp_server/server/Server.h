@@ -29,6 +29,7 @@ private:
     void CloseSocket(unsigned int client_socket);
     std::string PrepareAnswer(std::string_view);
     
+    constexpr size_t m_buffer_size {1024};
     std::mutex m_shutdown_mutex;
     std::condition_variable m_shutdown_cv;
     std::thread m_shutdown_thread;

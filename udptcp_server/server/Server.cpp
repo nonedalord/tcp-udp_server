@@ -237,7 +237,7 @@ void TCPUPDServer::HandleTCPClientData(unsigned int client_socket)
     {
         return;
     }
-    char buffer[1024];
+    char buffer[m_buffer_size];
     ssize_t total_bytes_read = 0;
     bool is_closed = false;
     while (m_server_run.load())
@@ -248,6 +248,7 @@ void TCPUPDServer::HandleTCPClientData(unsigned int client_socket)
             total_bytes_read += bytes_read;
             if (total_bytes_read >= sizeof(buffer))
             {
+                total_bytes_read = m_buffer_size;
                 LOG(m_logger, LogHelper::warning, "Buffer is overflowed for client " << client_socket);
                 break;
             }
@@ -280,6 +281,7 @@ void TCPUPDServer::HandleTCPClientData(unsigned int client_socket)
     if (is_closed)
     {
         CloseSocket(client_socket);
+        return;
     }
 
     if (total_bytes_read > 0)
