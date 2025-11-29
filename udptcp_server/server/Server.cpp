@@ -124,7 +124,7 @@ void TCPUPDServer::ListenAsync(unsigned int max_threads)
 {
     m_server_run = true;
     
-    m_task_queue->starAsync(max_threads);
+    m_task_queue->startAsync(max_threads);
     m_server_thread = std::thread([this] {
         epoll_event events[m_max_events];
         while(m_server_run.load())

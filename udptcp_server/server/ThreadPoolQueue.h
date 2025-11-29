@@ -12,7 +12,7 @@ class ThreadPoolQueue {
 public:
     ThreadPoolQueue() : m_is_running(true) {};
 
-    void starAsync(unsigned int max_threads)
+    void startAsync(unsigned int max_threads)
     {
         for (int i = 0; i < max_threads; ++i)
         {
