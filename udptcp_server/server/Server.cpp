@@ -9,7 +9,7 @@
 #include <netinet/in.h>
 #include <cstring>
 
-TCPUPDServer::TCPUPDServer() : m_server_run(false), m_clients_count(0), m_tcp_socket(-1), m_udp_socket(-1), m_epoll_fd(-1), m_error_mask(EPOLLHUP | EPOLLERR | EPOLLRDHUP),
+TCPUPDServer::TCPUPDServer() : m_server_run(false), m_tcp_socket(-1), m_udp_socket(-1), m_epoll_fd(-1), m_error_mask(EPOLLHUP | EPOLLERR | EPOLLRDHUP),
 m_shutdown_event_fd(-1), m_is_shutdown(false), m_task_queue(std::make_unique<ThreadPoolQueue>()), m_logger(boost::log::keywords::channel = "Server") {}
 
 TCPUPDServer::~TCPUPDServer()
@@ -227,7 +227,7 @@ void TCPUPDServer::HandleNewTCPConnection()
             m_client_sockets.insert(client_socket);
         }
         LOG(m_logger, LogHelper::info, "New TCP Connection " << client_socket);
-        m_clients_count += 1;
+        ++m_clients_count;
     }
 }
 
@@ -334,7 +334,7 @@ std::string TCPUPDServer::PrepareAnswer(std::string_view response)
         else if (response == "/stats")
         {
             LOG(m_logger, LogHelper::info, "Received stats command");
-            return "Total clients: " + std::to_string(m_clients_count.load()) + ". Active clients: " + std::to_string(m_client_sockets.size());
+            return "Total clients: " + m_clients_count.Get() + ". Active clients: " + std::to_string(m_client_sockets.size());
         }
         else if (response == "/shutdown")
         {

@@ -10,6 +10,7 @@
 
 #include "ThreadPoolQueue.h"
 #include "../logging/Logging.h"
+#include "StringCounter.h"
 
 class TCPUPDServer 
 {
@@ -36,7 +37,7 @@ private:
     std::mutex m_callback_mutex;
     ShutdownCallback m_shutdown_callback;
     std::atomic<bool> m_is_shutdown;
-    std::atomic<unsigned int> m_clients_count;
+    StringCounter m_clients_count;
     std::shared_mutex m_set_mutex;
     int m_tcp_socket;
     int m_udp_socket;
